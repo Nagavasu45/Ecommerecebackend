@@ -3,7 +3,7 @@ const dotenv=require("dotenv")
 const cors=require("cors");
 const router1 = require("./userControl/regloginrouter");
 const { Connection } = require("./config/db");
-const rapi = require("./dummydata");
+// const rapi = require("./dummydata");
 
 // const { Mobile } = require("./dummydata");
 dotenv.config()
