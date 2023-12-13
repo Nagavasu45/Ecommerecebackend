@@ -9,6 +9,7 @@ const bcrypt = require("bcrypt");
 const jwt=require("jsonwebtoken")
 
 const router1=require("express").Router();
+const stripe=require("stripe")("sk_test_51OMERySJb30zHYKXRtntVAOMPx8ClokJnGOlIPN1IBbaP06OUAf0e4jFlBPAnUsEPy6uK7zORnT48RFKNRH14DC2002ZAtE6HX")
 const saltround=10;
 const secretkey="Nagava"
 
@@ -52,7 +53,7 @@ router1.post("/login",async (req,res)=>{
         const validmaildetails= await reg.findOne({email:{$eq:logindetails.email}})
         console.log(validmaildetails)
         if(validmaildetails){
-            console.log({msg:"email already exists"}) 
+            // console.log({msg:"email already exists"}) 
     
             const comparedetails= bcrypt.compareSync(logindetails.password,validmaildetails.password)
         
@@ -144,6 +145,65 @@ router1.get("/mobdata",async (req,res)=>{
     
     return res.send(dbres4)
 })
+
+//const stripe = require('stripe')('your_stripe_secret_key'); // Replace with your actual Stripe secret key
+
+router1.post("/createcheckout", async (req, res) => {
+  const { products } = req.body;
+  console.log(products);
+
+  const lineItems = products.map((prod) => ({
+    
+    price_data: {
+      currency: "inr",
+      product_data: {
+        name: prod.modelname,
+      },
+      unit_amount: prod.price * 100,
+    },
+    quantity: prod.quantity
+  }));
+
+  try {
+    const session = await stripe.checkout.sessions.create({
+      payment_method_types: ['card'],
+      line_items: lineItems,
+      mode: "payment",
+      success_url: "http://localhost:3000/Success",
+      cancel_url: "http://localhost:3000/Cancel",
+    });
+
+    res.json({ id: session.id });
+  } catch (error) {
+    console.error('Error creating checkout session:', error);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+});
+
+
+// router1.post("/createcheckout",async(req,res)=>{
+//     const {products}=req.body;
+//     console.log(products)
+//     const lineItems=products.map((prod)=>({
+//         price_data:{
+//             currency:"inr",
+//             product_data:{
+//                 name:prod.dish,
+//             },
+//             unit_amount:prod.price*100,
+//         }, 
+//         quantity:prod.quantity 
+//     }));
+//     const session=await stripe.checkout.sessions.create({
+//         payment_method_types:['card'],
+//         line_items:lineItems,
+//         mode:"payment",
+//         success_url:"http://localhost:3000/success",
+//         cancel_url:"http://localhost:3000/cancel",
+
+//     });
+//     res.json({id:session.id})
+// })
 
 module.exports=router1
 
