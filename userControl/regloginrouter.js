@@ -179,10 +179,10 @@ router1.post("/createcheckout", async (req, res) => {
     res.status(500).json({ error: 'Internal Server Error' });
   }
 });
-router1.post("/Success",(req,res)=>{
+router1.get("/Success",(req,res)=>{
     return res.send({msg:"success"})
 })
-router1.post("/Cancel",(req,res)=>{
+router1.get("/Cancel",(req,res)=>{
     return res.send({msg:"cancel"})
 })
 // router1.post("/createcheckout",async(req,res)=>{
