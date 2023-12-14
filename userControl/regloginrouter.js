@@ -179,8 +179,12 @@ router1.post("/createcheckout", async (req, res) => {
     res.status(500).json({ error: 'Internal Server Error' });
   }
 });
-
-
+router1.post("/Success",(req,res)=>{
+    return res.send("success")
+})
+router1.post("/Cancel",(req,res)=>{
+    return res.send("cancel")
+})
 // router1.post("/createcheckout",async(req,res)=>{
 //     const {products}=req.body;
 //     console.log(products)
