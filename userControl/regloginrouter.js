@@ -169,8 +169,8 @@ router1.post("/createcheckout", async (req, res) => {
       payment_method_types: ['card'],
       line_items: lineItems,
       mode: "payment",
-      success_url: "http://localhost:3000/Success",
-      cancel_url: "http://localhost:3000/Cancel",
+      success_url: "https://ecombackend-82yd.onrender.com/Success",
+      cancel_url: "https://ecombackend-82yd.onrender.com/Cancel",
     });
 
     res.json({ id: session.id });
@@ -180,10 +180,10 @@ router1.post("/createcheckout", async (req, res) => {
   }
 });
 router1.post("/Success",(req,res)=>{
-    return res.send("success")
+    return res.send({msg:"success"})
 })
 router1.post("/Cancel",(req,res)=>{
-    return res.send("cancel")
+    return res.send({msg:"cancel"})
 })
 // router1.post("/createcheckout",async(req,res)=>{
 //     const {products}=req.body;
