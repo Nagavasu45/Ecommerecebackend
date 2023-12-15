@@ -173,7 +173,7 @@ router1.post("/createcheckout", async (req, res) => {
   }
 });
 router1.get("/Success",(req,res)=>{
-    return res.send("<div><h1> payment successfull</h1>    <button> continue</button></div>")
+    return res.send("<div><h1> payment successfull</h1>    <Link to='/'> continue</Link></div>")
 })
 router1.get("/Cancel",(req,res)=>{
     return res.send({msg:"cancel"})
