@@ -173,7 +173,7 @@ router1.post("/createcheckout", async (req, res) => {
   }
 });
 router1.get("/Success",(req,res)=>{
-    return res.send("<div><h1> payment successfull</h1>    <a href='/' > continue</a></div>")
+    return res.send("<div><h1> payment successfull</h1>    <a href='https://earnest-buttercream-28d49b.netlify.app/' > continue</a></div>")
 })
 router1.get("/Cancel",(req,res)=>{
     return res.send({msg:"cancel"})
