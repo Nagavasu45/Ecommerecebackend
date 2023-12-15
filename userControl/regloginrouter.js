@@ -16,10 +16,7 @@ const secretkey="Nagava"
 router1.post("/register",async (req,res)=>{
     const user=req.body;
     try{
-    const samemail=await reg.findOne({email:{$eq:user.email}})
-         
-    
-    // console.log(samemail.length)
+    const samemail=await reg.findOne({email:{$eq:user.email}})// console.log(samemail.length)
     if(samemail){
         console.log({msg:"email already exists"})
         return res.send({msg:"email already exists"})
@@ -36,11 +33,7 @@ router1.post("/register",async (req,res)=>{
         
         return res.send({msg:"user successfully registered",jwttoken:token})
     }
-    // const registerdetails=req.body;
-    // console.log(registerdetails)
-    // const dbres1=await reg.create(registerdetails)
-    // console.log(dbres1)
-    // return res.send({msg:"registered successfully"})
+    
 }
 catch(error){
     console.log(error)
