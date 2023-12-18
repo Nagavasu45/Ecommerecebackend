@@ -155,18 +155,23 @@ const htmlsuccesspage = `
         h1 {
             color: blue;
         }
-        div{
+        .cont{
+            display:flex;
             align-items:center;
-            margin-left:20%;
+            flex-direction:column;
+            border:2px dashed-line black;
         }
     </style>
     <title>payment</title>
 </head>
 <body>
+<div className="cont">
 <div>
     <h1>Payment successfull and order confirmed</h1>
+    <div>
     <a href="https://earnest-buttercream-28d49b.netlify.app/"> <button>continue your shopping</button></a>
-</div>
+    </div>
+    </div>
     </body>
 </html>
 `;
