@@ -159,8 +159,8 @@ const htmlsuccesspage = `
             display:flex;
             align-items:center;
             flex-direction:column;
-            border:2px dashed-line black;
-            margin:auto;
+            border:2px;
+            margin-left:20%;
         }
     </style>
     <title>payment</title>
