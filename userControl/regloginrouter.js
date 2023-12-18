@@ -163,7 +163,7 @@ const htmlsuccesspage = `
             border:2px;
             
         }
-       botton{
+       button{
             
             margin-left:46%;
        }
