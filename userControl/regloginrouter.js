@@ -153,11 +153,11 @@ const htmlsuccesspage = `
             background-color: #f0f0f0;
         }
         h1 {
-            color: #333;
+            color: blue;
         }
         div{
             align-items:center;
-            margin:auto;
+            margin-left:20%;
         }
     </style>
     <title>payment</title>
