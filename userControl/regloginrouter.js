@@ -6,7 +6,8 @@ const { reg } = require("../model/registermodel");
 
 const bcrypt = require("bcrypt");
 // const auth = require("../authee/auther");
-const jwt=require("jsonwebtoken")
+const jwt=require("jsonwebtoken");
+const { default: Success } = require("./Success");
 
 const router1=require("express").Router();
 const stripe=require("stripe")("sk_test_51OMERySJb30zHYKXRtntVAOMPx8ClokJnGOlIPN1IBbaP06OUAf0e4jFlBPAnUsEPy6uK7zORnT48RFKNRH14DC2002ZAtE6HX")
@@ -173,7 +174,8 @@ router1.post("/createcheckout", async (req, res) => {
   }
 });
 router1.get("/Success",(req,res)=>{
-    return res.send("<div><h1> payment successfull</h1>    <a href='https://earnest-buttercream-28d49b.netlify.app/' > continue</a></div>")
+    //return res.send("<div><h1> payment successfull</h1>    <a href='https://earnest-buttercream-28d49b.netlify.app/' > continue</a></div>")
+    return res.send(Success)
 })
 router1.get("/Cancel",(req,res)=>{
     return res.send({msg:"cancel"})
