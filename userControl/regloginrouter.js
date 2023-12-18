@@ -155,13 +155,18 @@ const htmlsuccesspage = `
         h1 {
             color: #333;
         }
+        div{
+            align-items:center;
+        }
     </style>
     <title>HTML with CSS</title>
 </head>
 <body>
+<div>
     <h1>order confirmed</h1>
-    <a href="https://earnest-buttercream-28d49b.netlify.app/"> continue your shopping</a>
-</body>
+    <a href="https://earnest-buttercream-28d49b.netlify.app/"> <button>continue your shopping</button></a>
+</div>
+    </body>
 </html>
 `;
 router1.post("/createcheckout", async (req, res) => {
