@@ -154,13 +154,17 @@ const htmlsuccesspage = `
         }
         h1 {
             color: blue;
+            margin-left:20%;
         }
         .cont{
             display:flex;
             align-items:center;
             flex-direction:column;
             border:2px;
-            margin-left:20%;
+            
+        }
+        .bot1{
+            margin:auto
         }
     </style>
     <title>payment</title>
@@ -170,7 +174,7 @@ const htmlsuccesspage = `
 <div>
     <h1>Payment successfull and order confirmed</h1>
     <div>
-    <a href="https://earnest-buttercream-28d49b.netlify.app/"> <button>continue your shopping</button></a>
+    <a href="https://earnest-buttercream-28d49b.netlify.app/"> <button classname=" bot1">continue your shopping</button></a>
     </div>
     </div>
     </body>
