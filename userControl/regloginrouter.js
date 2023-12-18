@@ -7,7 +7,7 @@ const { reg } = require("../model/registermodel");
 const bcrypt = require("bcrypt");
 // const auth = require("../authee/auther");
 const jwt=require("jsonwebtoken");
-const { default: Success } = require("./Success");
+
 
 const router1=require("express").Router();
 const stripe=require("stripe")("sk_test_51OMERySJb30zHYKXRtntVAOMPx8ClokJnGOlIPN1IBbaP06OUAf0e4jFlBPAnUsEPy6uK7zORnT48RFKNRH14DC2002ZAtE6HX")
@@ -141,7 +141,29 @@ router1.get("/mobdata",async (req,res)=>{
 })
 
 //const stripe = require('stripe')('your_stripe_secret_key'); // Replace with your actual Stripe secret key
-
+const htmlsuccesspage = `
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
+        h1 {
+            color: #333;
+        }
+    </style>
+    <title>HTML with CSS</title>
+</head>
+<body>
+    <h1>order confirmed</h1>
+    <a href="https://earnest-buttercream-28d49b.netlify.app/"> continue your shopping</a>
+</body>
+</html>
+`;
 router1.post("/createcheckout", async (req, res) => {
   const { products } = req.body;
   console.log(products);
@@ -173,36 +195,15 @@ router1.post("/createcheckout", async (req, res) => {
     res.status(500).json({ error: 'Internal Server Error' });
   }
 });
+//"<div><h1 style={background-color:red}> payment successfull</h1>    <a href='https://earnest-buttercream-28d49b.netlify.app/' > continue</a></div>"
 router1.get("/Success",(req,res)=>{
-    //return res.send("<div><h1> payment successfull</h1>    <a href='https://earnest-buttercream-28d49b.netlify.app/' > continue</a></div>")
-    return res.send(Success)
+    return res.send(htmlsuccesspage)
+   
 })
 router1.get("/Cancel",(req,res)=>{
     return res.send({msg:"cancel"})
 })
-// router1.post("/createcheckout",async(req,res)=>{
-//     const {products}=req.body;
-//     console.log(products)
-//     const lineItems=products.map((prod)=>({
-//         price_data:{
-//             currency:"inr",
-//             product_data:{
-//                 name:prod.dish,
-//             },
-//             unit_amount:prod.price*100,
-//         }, 
-//         quantity:prod.quantity 
-//     }));
-//     const session=await stripe.checkout.sessions.create({
-//         payment_method_types:['card'],
-//         line_items:lineItems,
-//         mode:"payment",
-//         success_url:"http://localhost:3000/success",
-//         cancel_url:"http://localhost:3000/cancel",
 
-//     });
-//     res.json({id:session.id})
-// })
 
 module.exports=router1
 
