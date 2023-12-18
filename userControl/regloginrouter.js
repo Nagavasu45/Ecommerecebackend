@@ -163,10 +163,10 @@ const htmlsuccesspage = `
             border:2px;
             
         }
-        .bot1{
+       botton{
+            
             margin-left:46%;
-            height:20px;
-        }
+       }
     </style>
     <title>payment</title>
 </head>
