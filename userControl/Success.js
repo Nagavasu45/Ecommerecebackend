@@ -1,9 +1,9 @@
 
-import React from 'react'
-import { useNavigate } from 'react-router-dom'
+
+
 
 const Success = () => {
-  const  navigate=useNavigate()
+ 
   
   const handlecartcount=()=>{
     localStorage.removeItem('value')
