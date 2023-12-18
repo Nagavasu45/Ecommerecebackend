@@ -160,6 +160,7 @@ const htmlsuccesspage = `
             align-items:center;
             flex-direction:column;
             border:2px dashed-line black;
+            margin:auto;
         }
     </style>
     <title>payment</title>
