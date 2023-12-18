@@ -154,7 +154,7 @@ const htmlsuccesspage = `
         }
         h1 {
             color: blue;
-            margin-left:20%;
+            margin-left:33%;
         }
         .cont{
             display:flex;
