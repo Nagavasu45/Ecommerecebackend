@@ -175,7 +175,7 @@ const htmlsuccesspage = `
 <div>
     <h1>Payment successfull and order confirmed</h1>
     <div>
-    <a href="https://earnest-buttercream-28d49b.netlify.app/"> <button classname=" bot1">continue your shopping</button></a>
+    <a href="https://earnest-buttercream-28d49b.netlify.app/"> <button className=" bot1">continue your shopping</button></a>
     </div>
     </div>
     </body>
