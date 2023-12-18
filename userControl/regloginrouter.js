@@ -164,7 +164,8 @@ const htmlsuccesspage = `
             
         }
         .bot1{
-            margin:auto
+            margin-left:46%;
+            height:20px;
         }
     </style>
     <title>payment</title>
