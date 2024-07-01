@@ -16,7 +16,7 @@ app.use(cors({
 app.get("/",(req,res)=>{
     return res.send("homepage")
 })
-// app.use(rapi)
+// app.use(rapi)npm 
 app.use(router1)
 app.listen(port,async ()=>{
     try{

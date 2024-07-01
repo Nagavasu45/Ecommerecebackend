@@ -203,8 +203,8 @@ router1.post("/createcheckout", async (req, res) => {
       payment_method_types: ['card'],
       line_items: lineItems,
       mode: "payment",
-      success_url: "https://ecombackend-82yd.onrender.com/Success",
-      cancel_url: "https://ecombackend-82yd.onrender.com/Cancel",
+      success_url: "https://ecommerecebackend.onrender.com/Success",
+      cancel_url: "https://ecommerecebackend.onrender.com/Cancel",
     });
 
     res.json({ id: session.id });
