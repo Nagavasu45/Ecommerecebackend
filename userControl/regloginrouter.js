@@ -4,7 +4,8 @@ const auth = require("../authee/auther");
 const {  dumy } = require("../model/dataadding");
 const { reg } = require("../model/registermodel");
 
-const bcrypt = require("bcrypt");
+//const bcrypt = require("bcrypt");
+const bcrypt=require("bcryptjs")
 // const auth = require("../authee/auther");
 const jwt=require("jsonwebtoken");
 
